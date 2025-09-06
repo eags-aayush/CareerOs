@@ -4,8 +4,7 @@
 
 This contains everything you need to run your app locally.
 
-View your app:[ https://ai.studio/apps/drive/1-NVJpgxHQWmYRCfXOjCNkk11BnTy_w71
-](https://careeros-ai-career-advisor-756283799367.us-west1.run.app)
+View your app:https://careeros-ai-career-advisor-756283799367.us-west1.run.app
 ## Run Locally
 
 **Prerequisites:**  Node.js
