@@ -11,6 +11,7 @@
 	<img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=plastic&logo=TypeScript&logoColor=black" alt="TypeScript">
 	<img src="https://img.shields.io/badge/Vite-41D1FF.svg?style=plastic&logo=Vite&logoColor=white" alt="Vite">
 </p>
+<p>Live Link: https://careeros-ai-career-advisor-756283799367.us-west1.run.app/</p>
 </div>
 <br clear="right">
 
