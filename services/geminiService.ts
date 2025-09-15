@@ -1,15 +1,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserProfile } from '../types';
-import dotenv from "dotenv";
-
-dotenv.config()
 
 const getCareerAdvice = async (profile: UserProfile, language: string): Promise<string> => {
-  if (!process.env.API_KEY) {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  if (!apiKey) {
     throw new Error("API_KEY environment variable not set. Please configure your API key.");
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey });
 
   const systemInstruction = `You are CareerOS — a personalized AI career and skills advisor for Indian students. 
 Your role is to act as an empathetic, encouraging, and highly practical career coach. You map a student’s skills, interests, and constraints to suitable career paths, simulate possible futures, and generate actionable, explainable learning roadmaps.
