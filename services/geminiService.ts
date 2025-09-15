@@ -1,6 +1,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserProfile } from '../types';
 
+require('dotenv').config()
+
 const getCareerAdvice = async (profile: UserProfile, language: string): Promise<string> => {
   if (!process.env.API_KEY) {
     throw new Error("API_KEY environment variable not set. Please configure your API key.");
