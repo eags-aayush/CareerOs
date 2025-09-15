@@ -1,10 +1,15 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { UserProfile } from '../types';
+import { UserProfile } from "../types";
 
-const getCareerAdvice = async (profile: UserProfile, language: string): Promise<string> => {
+const getCareerAdvice = async (
+  profile: UserProfile,
+  language: string
+): Promise<string> => {
   const apiKey = import.meta.env.VITE_API_KEY;
   if (!apiKey) {
-    throw new Error("API_KEY environment variable not set. Please configure your API key.");
+    throw new Error(
+      "VITE_API_KEY environment variable not set. Please configure your API key."
+    );
   }
 
   const ai = new GoogleGenAI({ apiKey });
@@ -49,7 +54,7 @@ The response MUST follow this exact structure:
 Here is the student's profile:
 - **Name**: ${profile.name}
 - **Interests & Passions**: ${profile.interests}
-- **Current Skills**: ${profile.skills.join(', ')}
+- **Current Skills**: ${profile.skills.join(", ")}
 - **Education Level & Subjects**: ${profile.education}
 - **Location & Language Preference**: ${profile.location}, ${profile.language}
 - **Time Available for Learning**: ${profile.time}
@@ -60,7 +65,7 @@ Please generate a complete and personalized career advisory report in **${langua
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: "gemini-2.5-flash",
       contents: userPrompt,
       config: {
         systemInstruction: systemInstruction,
@@ -71,49 +76,51 @@ Please generate a complete and personalized career advisory report in **${langua
   } catch (error) {
     console.error("Error generating content from Gemini API:", error);
     if (error instanceof Error) {
-        throw new Error(`Failed to get career advice from Gemini API: ${error.message}`);
+      throw new Error(
+        `Failed to get career advice from Gemini API: ${error.message}`
+      );
     }
-    throw new Error("An unknown error occurred while communicating with the Gemini API.");
+    throw new Error(
+      "An unknown error occurred while communicating with the Gemini API."
+    );
   }
 };
 
-
 const getSkillSuggestions = async (interests: string): Promise<string[]> => {
-    if (!process.env.API_KEY) {
-        throw new Error("API_KEY environment variable not set.");
-    }
+  const apiKey = import.meta.env.VITE_API_KEY;
+  if (!apiKey) {
+    throw new Error("VITE_API_KEY environment variable not set.");
+  }
 
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey });
 
-    const prompt = `Based on the following interests for a student in India: "${interests}", suggest a list of 10-12 relevant technical and soft skills they could learn. Return the skills as a JSON array of strings.`;
+  const prompt = `Based on the following interests for a student in India: "${interests}", suggest a list of 10-12 relevant technical and soft skills they could learn. Return the skills as a JSON array of strings.`;
 
-    try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: prompt,
-            config: {
-                responseMimeType: "application/json",
-                responseSchema: {
-                    type: Type.OBJECT,
-                    properties: {
-                        skills: {
-                            type: Type.ARRAY,
-                            items: { type: Type.STRING }
-                        }
-                    }
-                }
-            }
-        });
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            skills: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING },
+            },
+          },
+        },
+      },
+    });
 
-        const jsonStr = response.text.trim();
-        const result = JSON.parse(jsonStr);
-        return result.skills || [];
-
-    } catch (error) {
-        console.error("Error getting skill suggestions from Gemini API:", error);
-        throw new Error("Failed to get AI-powered skill suggestions.");
-    }
+    const jsonStr = response.text.trim();
+    const result = JSON.parse(jsonStr);
+    return result.skills || [];
+  } catch (error) {
+    console.error("Error getting skill suggestions from Gemini API:", error);
+    throw new Error("Failed to get AI-powered skill suggestions.");
+  }
 };
-
 
 export { getCareerAdvice, getSkillSuggestions };
