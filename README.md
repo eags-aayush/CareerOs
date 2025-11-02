@@ -11,9 +11,10 @@
 	<img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=plastic&logo=TypeScript&logoColor=black" alt="TypeScript">
 	<img src="https://img.shields.io/badge/Vite-41D1FF.svg?style=plastic&logo=Vite&logoColor=white" alt="Vite">
 </p>
-<p>Live Demo & Video: <a href="https://drive.google.com/file/d/1ae_ei5FBS0Fw2ZNMHvOugasuQ3oQlg9h/view?usp=drivesdk">Click Here</a></p>
 
-<!-- Video Embed -->
+<p><b>Live Link:</b> <a href="https://drive.google.com/file/d/1ae_ei5FBS0Fw2ZNMHvOugasuQ3oQlg9h/view?usp=drivesdk" target="_blank">CareerOS Drive Link</a></p>
+
+<p><b>Project Demo Video:</b></p>
 <video width="100%" height="auto" controls>
   <source src="https://drive.google.com/uc?export=download&id=1ae_ei5FBS0Fw2ZNMHvOugasuQ3oQlg9h" type="video/mp4">
   Your browser does not support the video tag.
@@ -38,27 +39,27 @@
 
 ## 📍 Overview
 <p>
-<strong>CareerOS – AI-Powered Career Simulation & Skills Graph Advisor</strong> is a hackathon-ready concept designed to transform career guidance for Indian students. It addresses the problem of overwhelming, generic, and outdated counseling by providing a personalized, explainable, and adaptive AI-driven solution.
+    <strong>CareerOS – AI-Powered Career Simulation & Skills Graph Advisor</strong> is a hackathon-ready concept designed to transform career guidance for Indian students. It addresses the problem of overwhelming, generic, and outdated counseling by providing a personalized, explainable, and adaptive AI-driven solution.
 </p>
 <p>
-The platform builds a <strong>Skills Graph Twin</strong> for each student, simulates multiple career paths, and generates step-by-step learning plans with free resources. It emphasizes evidence-backed recommendations, multilingual support, and real-time adaptation.
+    The platform builds a <strong>Skills Graph Twin</strong> for each student, simulates multiple career paths, and generates step-by-step learning plans with free resources. It emphasizes evidence-backed recommendations, multilingual support, and real-time adaptation.
 </p>
 <p>
-With a robust <strong>Google Cloud tech stack</strong>, including Vertex AI, BigQuery, and Firestore, CareerOS delivers scalable, region-aware guidance. Its unique value lies in simulating futures, explaining every suggestion, and empowering students to make informed decisions while reducing wasted time and money.
+    With a robust <strong>Google Cloud tech stack</strong>, including Vertex AI, BigQuery, and Firestore, CareerOS delivers scalable, region-aware guidance. Its unique value lies in simulating futures, explaining every suggestion, and empowering students to make informed decisions while reducing wasted time and money.
 </p>
 <p>
-The deck guides viewers through <strong>problem → opportunity → solution → demo → impact → next steps</strong>, providing a clear, compelling narrative for a hackathon MVP.
+    The deck guides viewers through <strong>problem → opportunity → solution → demo → impact → next steps</strong>, providing a clear, compelling narrative for a hackathon MVP.
 </p>
 
 ---
 
 ## 👾 Features
 <ul>
-	<li><b>Career Simulation Engine:</b> See your possible future.</li>
-	<li><b>Explainable AI:</b> "Why this?" for every suggestion.</li>
-	<li><b>Adaptive Learning Plans:</b> Updates as you progress.</li>
-	<li><b>Multi Regional Awareness:</b> Hindi, Marathi, English language support.</li>
-	<li><b>Proof of Skill:</b> Show employers what you can do.</li>
+	<li><b>Career Simulation Engine - </b> See your possible future.</li>
+	<li><b>Explainable AI - </b>"Why this? for every suggestion."</li>
+	<li><b>Adaptive Learning Plans - </b>Updates as you progress.</li>
+	<li><b>Multi Regional Awareness - </b>Hindi, Marathi, English language support.</li>
+	<li><b>Proof of Skill - </b>Show employers what you can do.</li>
 </ul>
 
 ---
@@ -69,13 +70,34 @@ The deck guides viewers through <strong>problem → opportunity → solution →
 └── Ai-CareerOS/
     ├── App.tsx
     ├── README.md
-    ├── components/
+    ├── components
+    │   ├── ErrorDisplay.tsx
+    │   ├── FeedbackForm.tsx
+    │   ├── Footer.tsx
+    │   ├── Header.tsx
+    │   ├── LanguageProvider.tsx
+    │   ├── LanguageSwitcher.tsx
+    │   ├── Loader.tsx
+    │   ├── Modal.tsx
+    │   ├── ProfileForm.tsx
+    │   ├── ProgressBar.tsx
+    │   ├── ResultsDisplay.tsx
+    │   ├── SkillInput.tsx
+    │   ├── SkillSuggestions.tsx
+    │   ├── ThemeProvider.tsx
+    │   ├── ThemeToggleButton.tsx
+    │   └── icons
     ├── index.html
     ├── index.tsx
-    ├── localization/
+    ├── localization
+    │   ├── en.ts
+    │   ├── hi.ts
+    │   └── mr.ts
     ├── metadata.json
     ├── package.json
-    ├── services/
+    ├── services
+    │   ├── analyticsService.ts
+    │   └── geminiService.ts
     ├── tsconfig.json
     ├── types.ts
     └── vite.config.ts
